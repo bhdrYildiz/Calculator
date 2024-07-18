@@ -1,10 +1,12 @@
 const display = document.querySelector('.calculator-input');
 const keys = document.querySelector('.calculator-keys');
+const historyList = document.querySelector('.history-list');
 
 let displayValue = '0';
 let firstValue = null;
 let operator = null;
 let secondValueSit = false;
+let history = [];
 
 updateDisplay();
 
@@ -51,13 +53,16 @@ function handleOperator(nextOperator){
     }else if(operator){
         const result = calculate(firstValue, value, operator);
 
-        displayValue = `${parseFloat(result.toFixed(7))}`;
+        if (operator !== '=') {
+            displayValue = `${parseFloat(result.toFixed(7))}`;
+            history.push(`${firstValue} ${operator} ${value} = ${displayValue}`);
+            updateHistory();
+        }
+
         firstValue = result;
     }
     secondValueSit = true;
     operator = nextOperator;
-
-    console.log(displayValue, firstValue, operator, secondValueSit);
 }
 
 function calculate(first, second, operator){
@@ -82,8 +87,6 @@ function inputNumber(num){
     }else{
         displayValue = displayValue === '0' ? num : displayValue + num;
     }
-
-    console.log(displayValue, firstValue, operator, secondValueSit);
 }
 
 function inputDecimal() {
@@ -94,4 +97,13 @@ function inputDecimal() {
 
 function clear() {
     displayValue = '0';
+}
+
+function updateHistory() {
+    historyList.innerHTML = '';
+    history.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = entry;
+        historyList.appendChild(li);
+    });
 }

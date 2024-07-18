@@ -14,7 +14,7 @@ body {
     border-radius: 12px;
     width: 500px;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
@@ -76,4 +76,32 @@ button:hover {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     padding: 20px
+}
+.history {
+    border: 1px solid #0b503f;
+    border-radius: 12px;
+    width: 500px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 100px;
+}
+
+.history h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.history-list {
+    list-style-type: none;
+    font-size: 2rem;
+}
+
+.history-list li {
+    margin-bottom: 12px;
+    margin-left: 10px;
 }
