@@ -58,7 +58,6 @@ function handleOperator(nextOperator){
             history.push(`${firstValue} ${operator} ${value} = ${displayValue}`);
             updateHistory();
         }
-
         firstValue = result;
     }
     secondValueSit = true;
@@ -97,6 +96,11 @@ function inputDecimal() {
 
 function clear() {
     displayValue = '0';
+    firstValue = null;
+    operator = null;
+    secondValueSit = false;
+    history = [];
+    updateHistory();
 }
 
 function updateHistory() {

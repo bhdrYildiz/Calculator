@@ -8,6 +8,15 @@ html {
 }
 body {
     font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .calculator {
     border: 1px solid #0b503f;
